@@ -1,0 +1,293 @@
+void save(){
+    //Player
+    RPG::player out_char_dat;
+    out_char_dat.set_money(character.money);
+    out_char_dat.set_race_class(character.race_class);
+    out_char_dat.set_health(character.health);
+    out_char_dat.set_max_health(character.max_health);
+    out_char_dat.set_exp(character.exp);
+    out_char_dat.set_level(character.level);
+    out_char_dat.set_dmg(character.dmg);
+    out_char_dat.set_player_class(character.player_class);
+    vector<string>::iterator i;
+    for(i=character.inventory.begin();i!=character.inventory.end();++i){
+        out_char_dat.add_inventory(*i);// = *i;
+    }
+    map<string, string>::iterator it;
+    for(it=character.equip_places.begin();it!=character.equip_places.end();++it){
+        out_char_dat.add_equip_places_key(it->first);// = it->first;
+        out_char_dat.add_equip_places_value(it->second);// = it->second;
+    }
+    //NPCs
+    RPG::npc out_npc_dat;
+    map<string, int>::iterator itt;
+    for(itt=npc.smith_items_to_buy.begin();itt!=npc.smith_items_to_buy.end();++itt){
+        out_npc_dat.add_smith_items_to_buy_key(itt->first);// = itt->first;
+        out_npc_dat.add_smith_items_to_buy_value(itt->second);// = itt->second;
+    }
+    for(itt=npc.smith_items_to_sell.begin();itt!=npc.smith_items_to_sell.end();++itt){
+        out_npc_dat.add_smith_items_to_sell_key(itt->first);// = itt->first;
+        out_npc_dat.add_smith_items_to_sell_value(itt->second);// = itt->second;
+    }
+    //Useable items
+    RPG::use_item out_item_dat;
+    out_item_dat.set_picked_potion(items.picked_potion);
+    out_item_dat.set_wear_off(items.wear_off);
+    for(i=items.health_restores.begin();i!=items.health_restores.end();++i){
+        out_item_dat.add_health_restores(*i);// = *i;
+    }
+    for(i=items.poisons.begin();i!=items.poisons.end();++i){
+        out_item_dat.add_poisons(*i);// = *i;
+    }
+    for(i=items.temp_boosts.begin();i!=items.temp_boosts.end();++i){
+        out_item_dat.add_temp_boosts(*i);// = *i;
+    }
+    for(i=items.perm_boosts.begin();i!=items.perm_boosts.end();++i){
+        out_item_dat.add_perm_boosts(*i);// = *i;
+    }
+    for(i=items.misc.begin();i!=items.misc.end();++i){
+        out_item_dat.add_misc(*i);// = *i;
+    }
+    //Monster
+    RPG::monster out_mon_dat;
+    for(i=mob.mon_count.begin();i!=mob.mon_count.end();++i){
+        out_mon_dat.add_mon_count(*i);// = *i;
+    }
+    //Equipment
+    RPG::equips out_equip_dat;
+    //Heavy equipment
+    for(i=equipment.h_head.begin();i!=equipment.h_head.end();++i){
+        out_equip_dat.add_h_head(*i);// = *i;
+    }
+    for(i=equipment.h_chest.begin();i!=equipment.h_chest.end();++i){
+        out_equip_dat.add_h_chest(*i);// = *i;
+    }
+    for(i=equipment.h_arm.begin();i!=equipment.h_arm.end();++i){
+        out_equip_dat.add_h_arm(*i);// = *i;
+    }
+    for(i=equipment.h_hand.begin();i!=equipment.h_hand.end();++i){
+        out_equip_dat.add_h_hand(*i);// = *i;
+    }
+    for(i=equipment.h_leg.begin();i!=equipment.h_leg.end();++i){
+        out_equip_dat.add_h_leg(*i);// = *i;
+    }
+    for(i=equipment.h_feet.begin();i!=equipment.h_feet.end();++i){
+        out_equip_dat.add_h_feet(*i);// = *i;
+    }
+    //Light equipment
+    for(i=equipment.l_head.begin();i!=equipment.l_head.end();++i){
+        out_equip_dat.add_l_head(*i);// = *i;
+    }
+    for(i=equipment.l_chest.begin();i!=equipment.l_chest.end();++i){
+        out_equip_dat.add_l_chest(*i);// = *i;
+    }
+    for(i=equipment.l_arm.begin();i!=equipment.l_arm.end();++i){
+        out_equip_dat.add_l_arm(*i);// = *i;
+    }
+    for(i=equipment.l_hand.begin();i!=equipment.l_hand.end();++i){
+        out_equip_dat.add_l_hand(*i);// = *i;
+    }
+    for(i=equipment.l_leg.begin();i!=equipment.l_leg.end();++i){
+        out_equip_dat.add_l_leg(*i);// = *i;
+    }
+    for(i=equipment.l_feet.begin();i!=equipment.l_feet.end();++i){
+        out_equip_dat.add_l_feet(*i);// = *i;
+    }
+    //Arcane equipment
+    for(i=equipment.a_head.begin();i!=equipment.a_head.end();++i){
+        out_equip_dat.add_a_head(*i);// = *i;
+    }
+    for(i=equipment.a_chest.begin();i!=equipment.a_chest.end();++i){
+        out_equip_dat.add_a_chest(*i);// = *i;
+    }
+    for(i=equipment.a_arm.begin();i!=equipment.a_arm.end();++i){
+        out_equip_dat.add_a_arm(*i);// = *i;
+    }
+    for(i=equipment.a_hand.begin();i!=equipment.a_hand.end();++i){
+        out_equip_dat.add_a_hand(*i);// = *i;
+    }
+    for(i=equipment.a_leg.begin();i!=equipment.a_leg.end();++i){
+        out_equip_dat.add_a_leg(*i);// = *i;
+    }
+    for(i=equipment.a_feet.begin();i!=equipment.a_feet.end();++i){
+        out_equip_dat.add_a_feet(*i);// = *i;
+    }
+
+    //RPG::dungeon_setup out_dun_dat; Optional, leaving out for now
+    //Only needed if add global save function (save in dungeons)
+    //Locations
+    RPG::locations out_loc_dat;
+    out_loc_dat.set_first_time_abon(locs.first_time_abon);
+    out_loc_dat.set_first_time_mon(locs.first_time_mon);
+    out_loc_dat.set_first_time_farm(locs.first_time_farm);
+    out_loc_dat.set_first_time_boat(locs.first_time_boat);
+    //Story
+    RPG::story out_story_dat;
+    out_story_dat.set_progress(sits.progress);
+    out_story_dat.set_back_story(sits.back_story);
+    out_story_dat.set_event1(sits.event1);
+    out_story_dat.set_event2(sits.event2);
+    out_story_dat.set_event3(sits.event3);
+    out_story_dat.set_event4(sits.event4);
+    out_story_dat.set_event5(sits.event5);
+    out_story_dat.set_event6(sits.event6);
+    out_story_dat.set_event7(sits.event7);
+    out_story_dat.set_event8(sits.event8);
+    out_story_dat.set_event9(sits.event9);
+    out_story_dat.set_event10(sits.event10);
+
+
+    fstream output("RPG.proto", ios::out | ios::trunc | ios::binary);
+    out_char_dat.SerializeToOstream(&output);
+    out_item_dat.SerializeToOstream(&output);
+    out_loc_dat.SerializeToOstream(&output);
+    out_mon_dat.SerializeToOstream(&output);
+    out_npc_dat.SerializeToOstream(&output);
+    out_story_dat.SerializeToOstream(&output);
+    output.close();
+}
+
+void load(){
+    RPG::player in_char_dat;
+    RPG::npc in_npc_dat;
+    RPG::use_item in_item_dat;
+    RPG::monster in_mon_dat;
+    RPG::equips in_equip_dat;
+    RPG::locations in_loc_dat;
+    RPG::story in_story_dat;
+    fstream input("RPG.proto", ios::in | ios::binary);
+    if(!in_char_dat.ParseFromIstream(&input)&&
+       !in_npc_dat.ParseFromIstream(&input)&&
+       !in_item_dat.ParseFromIstream(&input)&&
+       !in_mon_dat.ParseFromIstream(&input)&&
+       !in_equip_dat.ParseFromIstream(&input)&&
+       !in_loc_dat.ParseFromIstream(&input)&&
+       !in_story_dat.ParseFromIstream(&input)){
+           cout << "No saved game." << endl;
+           input.close();
+    }
+    else{
+        //Character
+        character.money = in_char_dat.money();
+        character.race_class = in_char_dat.race_class();
+        character.health = in_char_dat.health();
+        character.max_health = in_char_dat.max_health();
+        character.exp = in_char_dat.exp();
+        character.level = in_char_dat.level();
+        character.dmg = in_char_dat.dmg();
+        character.player_class = in_char_dat.player_class();
+        for(int i=1;i<in_char_dat.inventory_size();++i){
+            character.inventory.push_back(in_char_dat.inventory(i));
+        }
+        for(int i=0;i<in_char_dat.equip_places_key_size();++i){
+            character.equip_places.insert( pair<string,string>(in_char_dat.equip_places_key(i),in_char_dat.equip_places_value(i)) );
+        }
+        //NPC
+        for(int i=0;i<in_npc_dat.smith_items_to_buy_key_size();++i){
+            npc.smith_items_to_buy.insert( pair<string,int>(in_npc_dat.smith_items_to_buy_key(i),in_npc_dat.smith_items_to_buy_value(i)) );
+        }
+        for(int i=0;i<in_npc_dat.smith_items_to_buy_key_size();++i){
+            npc.smith_items_to_sell.insert( pair<string,int>(in_npc_dat.smith_items_to_sell_key(i),in_npc_dat.smith_items_to_sell_value(i)) );
+        }
+        //Use_items
+        for(int i=0;i<in_item_dat.health_restores_size();++i){
+            items.health_restores.push_back(in_item_dat.health_restores(i));
+        }
+        for(int i=0;i<in_item_dat.poisons_size();++i){
+            items.poisons.push_back(in_item_dat.poisons(i));
+        }
+        for(int i=0;i<in_item_dat.temp_boosts_size();++i){
+            items.temp_boosts.push_back(in_item_dat.temp_boosts(i));
+        }
+        for(int i=0;i<in_item_dat.perm_boosts_size();++i){
+            items.perm_boosts.push_back(in_item_dat.perm_boosts(i));
+        }
+        for(int i=0;i<in_item_dat.misc_size();++i){
+            items.misc.push_back(in_item_dat.misc(i));
+        }
+        //Monster
+        for(int i=0;i<in_mon_dat.mon_count_size();++i){
+            mob.mon_count.push_back(in_mon_dat.mon_count(i));
+        }
+        //Equips
+        //Heavy
+        for(int i=0;i<in_equip_dat.h_head_size();++i){
+            equipment.h_head.push_back(in_equip_dat.h_head(i));
+        }
+        for(int i=0;i<in_equip_dat.h_chest_size();++i){
+            equipment.h_chest.push_back(in_equip_dat.h_chest(i));
+        }
+        for(int i=0;i<in_equip_dat.h_arm_size();++i){
+            equipment.h_arm.push_back(in_equip_dat.h_arm(i));
+        }
+        for(int i=0;i<in_equip_dat.h_hand_size();++i){
+            equipment.h_hand.push_back(in_equip_dat.h_hand(i));
+        }
+        for(int i=0;i<in_equip_dat.h_leg_size();++i){
+            equipment.h_leg.push_back(in_equip_dat.h_leg(i));
+        }
+        for(int i=0;i<in_equip_dat.h_feet_size();++i){
+            equipment.h_feet.push_back(in_equip_dat.h_feet(i));
+        }
+        //Light
+        for(int i=0;i<in_equip_dat.l_head_size();++i){
+            equipment.l_head.push_back(in_equip_dat.l_head(i));
+        }
+        for(int i=0;i<in_equip_dat.l_chest_size();++i){
+            equipment.l_chest.push_back(in_equip_dat.l_chest(i));
+        }
+        for(int i=0;i<in_equip_dat.l_arm_size();++i){
+            equipment.l_arm.push_back(in_equip_dat.l_arm(i));
+        }
+        for(int i=0;i<in_equip_dat.l_hand_size();++i){
+            equipment.l_hand.push_back(in_equip_dat.l_hand(i));
+        }
+        for(int i=0;i<in_equip_dat.l_leg_size();++i){
+            equipment.l_leg.push_back(in_equip_dat.l_leg(i));
+        }
+        for(int i=0;i<in_equip_dat.l_feet_size();++i){
+            equipment.l_feet.push_back(in_equip_dat.l_feet(i));
+        }
+        //Arcane
+        for(int i=0;i<in_equip_dat.a_head_size();++i){
+            equipment.a_head.push_back(in_equip_dat.a_head(i));
+        }
+        for(int i=0;i<in_equip_dat.a_chest_size();++i){
+            equipment.a_chest.push_back(in_equip_dat.a_chest(i));
+        }
+        for(int i=0;i<in_equip_dat.a_arm_size();++i){
+            equipment.a_arm.push_back(in_equip_dat.a_arm(i));
+        }
+        for(int i=0;i<in_equip_dat.a_hand_size();++i){
+            equipment.a_hand.push_back(in_equip_dat.a_hand(i));
+        }
+        for(int i=0;i<in_equip_dat.a_leg_size();++i){
+            equipment.a_leg.push_back(in_equip_dat.a_leg(i));
+        }
+        for(int i=0;i<in_equip_dat.a_feet_size();++i){
+            equipment.a_feet.push_back(in_equip_dat.a_feet(i));
+        }
+        //Locations
+        locs.first_time_abon = in_loc_dat.first_time_abon();
+        locs.first_time_mon = in_loc_dat.first_time_mon();
+        locs.first_time_farm = in_loc_dat.first_time_farm();
+        locs.first_time_boat = in_loc_dat.first_time_boat();
+        //Story
+        sits.progress = in_story_dat.progress();
+        sits.back_story = in_story_dat.back_story();
+        sits.event1 = in_story_dat.event1();
+        sits.event2 = in_story_dat.event2();
+        sits.event3 = in_story_dat.event3();
+        sits.event4 = in_story_dat.event4();
+        sits.event5 = in_story_dat.event5();
+        sits.event6 = in_story_dat.event6();
+        sits.event7 = in_story_dat.event7();
+        sits.event8 = in_story_dat.event8();
+        sits.event9 = in_story_dat.event9();
+        sits.event10 = in_story_dat.event10();
+
+        cout << "Game loaded successfully." << endl;
+        input.close();
+        base();
+    }
+}

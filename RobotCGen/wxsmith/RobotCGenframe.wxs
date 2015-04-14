@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="RobotCGenFrame">
+		<size>952,135</size>
+		<id_arg>0</id_arg>
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<object class="sizeritem">
+				<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+					<size>241,203</size>
+					<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxChoice" name="ID_CHOICE1" variable="Choice1" member="yes">
+								<content>
+									<item>Controller Input</item>
+									<item>Ch1</item>
+									<item>Ch2</item>
+									<item>Ch3</item>
+									<item>Ch4</item>
+									<item>5U</item>
+									<item>5D</item>
+									<item>6U</item>
+									<item>6D</item>
+									<item>7U</item>
+									<item>7D</item>
+									<item>7L</item>
+									<item>7R</item>
+									<item>8U</item>
+									<item>8D</item>
+									<item>8L</item>
+									<item>8R</item>
+								</content>
+								<selection>0</selection>
+								<handler function="OnChoice1Select" entry="EVT_CHOICE" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+								<value>Motor Name</value>
+								<handler function="OnTextCtrl2Text" entry="EVT_TEXT" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="ID_CHOICE2" variable="Choice2" member="yes">
+								<content>
+									<item>Special Cases</item>
+									<item>None</item>
+									<item>Constant power</item>
+									<item>Motor switch</item>
+								</content>
+								<selection>0</selection>
+								<handler function="OnChoice2Select" entry="EVT_CHOICE" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxSlider" name="ID_SLIDER1" variable="Slider1" member="yes">
+								<max>127</max>
+								<selmax>127</selmax>
+								<style>wxSL_LABELS</style>
+								<handler function="OnSlider1CmdScroll" entry="EVT_COMMAND_SCROLL" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+								<label>Power (Servo only)</label>
+								<size>93,25</size>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxChoice" name="ID_CHOICE3" variable="Choice3" member="yes">
+								<content>
+									<item>Motor type</item>
+									<item>Servo</item>
+									<item>Normal</item>
+								</content>
+								<selection>0</selection>
+								<handler function="OnChoice3Select" entry="EVT_CHOICE" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxSpinCtrl" name="ID_SPINCTRL1" variable="SpinCtrl1" member="yes">
+								<value>1</value>
+								<min>1</min>
+								<max>10</max>
+								<handler function="OnSpinCtrl1Change" entry="EVT_SPINCTRL" />
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+								<label>Port Number</label>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer3" member="no">
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+										<label>Ok</label>
+										<size>116,52</size>
+										<handler function="OnButton1Click" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
+										<label>Finish</label>
+										<size>116,49</size>
+										<handler function="OnButton2Click" entry="EVT_BUTTON" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+				<option>1</option>
+			</object>
+		</object>
+	</object>
+</wxsmith>

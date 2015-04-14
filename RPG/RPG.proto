@@ -1,0 +1,96 @@
+package RPG;
+
+message player
+{
+    required int32 money = 1;
+    required string race_class = 2;
+    required int32 health = 3;
+    required int32 max_health = 4;
+    required int32 exp = 5;
+    required int32 level = 6;
+    required int32 dmg = 7;
+    required string player_class = 8;
+    repeated string inventory = 9;
+    repeated string equip_places_key = 10;
+    repeated string equip_places_value = 11;
+}
+
+message npc
+{
+    repeated string smith_items_to_buy_key = 12;
+    repeated int32 smith_items_to_buy_value = 13;
+    repeated string smith_items_to_sell_key = 14;
+    repeated int32 smith_items_to_sell_value = 15;
+}
+
+message use_item
+{
+    optional string picked_potion = 16;
+    optional int32 wear_off = 17;
+    repeated string health_restores = 18;
+    repeated string poisons = 19;
+    repeated string temp_boosts = 20;
+    repeated string perm_boosts = 21;
+    repeated string misc = 22;
+}
+
+message monster
+{
+    repeated string mon_count = 23;
+    required int32 mon_level = 24;
+}
+
+message equips
+{
+    repeated string h_head = 25;
+    repeated string h_chest = 26;
+    repeated string h_arm = 27;
+    repeated string h_hand = 28;
+    repeated string h_leg = 29;
+    repeated string h_feet = 30;
+    repeated string l_head = 31;
+    repeated string l_chest = 32;
+    repeated string l_arm = 33;
+    repeated string l_hand = 34;
+    repeated string l_leg = 35;
+    repeated string l_feet = 36;
+    repeated string a_head = 37;
+    repeated string a_chest = 38;
+    repeated string a_arm = 39;
+    repeated string a_hand = 40;
+    repeated string a_leg = 41;
+    repeated string a_feet = 42;
+}
+
+message dungeon_setup
+{
+    optional bool isactive = 43;
+    optional int32 room_count = 44;
+}
+
+message locations
+{
+    required bool first_time_abon = 45;
+    required bool first_time_mon = 46;
+    required bool first_time_farm = 47;
+    required bool first_time_boat = 48;
+    optional string rand_house_item = 49;
+    optional int32 dot_count = 50;
+    optional int32 dot_stop = 51;
+}
+
+message story
+{
+    required int32 progress = 52;
+    required string back_story = 53;
+    required string event1 = 54;
+    required string event2 = 55;
+    required string event3 = 56;
+    required string event4 = 57;
+    required string event5 = 58;
+    required string event6 = 59;
+    required string event7 = 60;
+    required string event8 = 61;
+    required string event9 = 62;
+    required string event10 = 63;
+}

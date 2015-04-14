@@ -1,0 +1,322 @@
+    vector<string> h_head;
+    vector<string> h_chest;
+    vector<string> h_arm;
+    vector<string> h_hand;
+    vector<string> h_leg;
+    vector<string> h_feet;
+    vector<string> l_head;
+    vector<string> l_chest;
+    vector<string> l_arm;
+    vector<string> l_hand;
+    vector<string> l_leg;
+    vector<string> l_feet;
+    vector<string> a_head;
+    vector<string> a_chest;
+    vector<string> a_arm;
+    vector<string> a_hand;
+    vector<string> a_leg;
+    vector<string> a_feet;
+
+    void heavy(){
+        //h_head.push_back(/*head gear */);
+        h_chest.push_back("heavy chestplate");
+        //h_arm.push_back(/*arm stuff */);
+        h_hand.push_back("battle axe");
+        h_leg.push_back("heavy leggings");
+        //h_feet.push_back(/*feet stuff */);
+    }
+
+    void light(){
+        //l_head.push_back(/*head gear */);
+        l_chest.push_back("light chestplate");
+        //l_arm.push_back(/*arm stuff */);
+        l_hand.push_back("dagger");
+        l_leg.push_back("light leggings");
+        //l_feet.push_back(/*feet stuff */);
+    }
+
+    void arcane(){
+        //a_head.push_back(/*head gear */);
+        a_chest.push_back("arcane chestplate");
+        //a_arm.push_back(/*arm stuff */);
+        a_hand.push_back("staff");
+        a_leg.push_back("arcane leggings");
+        //a_feet.push_back(/*feet stuff */);
+    }
+    void equip_heavy_items(){
+        vector<string> inven_copy(character.inventory);
+        if(!character.inventory.empty()){
+            for (vector<string>::iterator i=inven_copy.begin(); i != inven_copy.end(); ++i){
+                if(find(h_head.begin(), h_head.end(), *i) != h_head.end()){
+                    if(character.equip_places.find("head")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["head"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Headgear already equipped." << endl;
+                    }
+                }
+                else if(find(h_chest.begin(), h_chest.end(), *i) != h_chest.end()){
+                    if(character.equip_places.find("chest")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["chest"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Chestplate already equipped." << endl;
+                    }
+                }
+                else if(find(h_arm.begin(), h_arm.end(), *i) != h_arm.end()){
+                    if(character.equip_places.find("arms")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["arms"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Arm guards already equipped." << endl;
+                    }
+                }
+                else if(find(h_hand.begin(), h_hand.end(), *i) != h_hand.end()){
+                    if(character.equip_places.find("hands")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["hands"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Weapon already equipped." << endl;
+                    }
+                }
+                else if(find(h_leg.begin(), h_leg.end(), *i) != h_leg.end()){
+                    if(character.equip_places.find("legs")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["legs"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Leggings already equipped." << endl;
+                    }
+                }
+                else if(find(h_feet.begin(), h_feet.end(), *i) != h_feet.end()){
+                    if(character.equip_places.find("feet")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["feet"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Boots already equipped." << endl;
+                    }
+                }
+                else{
+                    cout << "Nothing to equip." << endl;
+                    break;
+                }
+            }
+        }
+        else{
+            cout << "No items to equip." << endl;
+        }
+    }
+    void equip_light_items(){
+        vector<string> inven_copy(character.inventory);
+        if(!character.inventory.empty()){
+            for (vector<string>::iterator i=inven_copy.begin(); i != inven_copy.end(); ++i){
+                if(find(l_head.begin(), l_head.end(), *i) != l_head.end()){
+                    if(character.equip_places.find("head")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["head"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Headgear already equipped." << endl;
+                    }
+                }
+                else if(find(l_chest.begin(), l_chest.end(), *i) != l_chest.end()){
+                    if(character.equip_places.find("chest")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["chest"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Chestplate already equipped." << endl;
+                    }
+                }
+                else if(find(l_arm.begin(), l_arm.end(), *i) != l_arm.end()){
+                    if(character.equip_places.find("arms")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["arms"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Arm guards already equipped." << endl;
+                    }
+                }
+                else if(find(l_hand.begin(), l_hand.end(), *i) != l_hand.end()){
+                    if(character.equip_places.find("hands")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        cout << "QWOP{ERDOOELRS" << endl;
+                        character.equip_places["hands"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Weapon already equipped." << endl;
+                    }
+                }
+                else if(find(l_leg.begin(), l_leg.end(), *i) != l_leg.end()){
+                    if(character.equip_places.find("legs")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["legs"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Leggings already equipped." << endl;
+                    }
+                }
+                else if(find(l_feet.begin(), l_feet.end(), *i) != l_feet.end()){
+                    if(character.equip_places.find("feet")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["feet"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Boots already equipped." << endl;
+                    }
+                }
+                else{
+                    cout << "Nothing to equip." << endl;
+                    break;
+                }
+            }
+        }
+        else{
+            cout << "No items to equip." << endl;
+        }
+    }
+    void equip_arcane_items(){
+        vector<string> inven_copy(character.inventory);
+        if(!character.inventory.empty()){
+            for (vector<string>::iterator i=inven_copy.begin(); i != inven_copy.end(); ++i){
+                if(find(a_head.begin(), a_head.end(), *i) != a_head.end()){
+                    if(character.equip_places.find("head")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["head"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Headgear already equipped." << endl;
+                    }
+                }
+                else if(find(a_chest.begin(), a_chest.end(), *i) != a_chest.end()){
+                    if(character.equip_places.find("chest")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["chest"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Chestplate already equipped." << endl;
+                    }
+                }
+                else if(find(a_arm.begin(), a_arm.end(), *i) != a_arm.end()){
+                    if(character.equip_places.find("arms")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["arms"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Arm guards already equipped." << endl;
+                    }
+                }
+                else if(find(a_hand.begin(), a_hand.end(), *i) != a_hand.end()){
+                    if(character.equip_places.find("hands")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["hands"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Weapon already equipped." << endl;
+                    }
+                }
+                else if(find(a_leg.begin(), a_leg.end(), *i) != a_leg.end()){
+                    if(character.equip_places.find("legs")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["legs"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Leggings already equipped." << endl;
+                    }
+                }
+                else if(find(a_feet.begin(), a_feet.end(), *i) != a_feet.end()){
+                    if(character.equip_places.find("feet")!=character.equip_places.end()){
+                        cout << "You equipped: " << *i << endl;
+                        character.equip_places["feet"]=*i;
+                        vector<string>::iterator position = find(character.inventory.begin(), character.inventory.end(), *i);
+                        if (position != character.inventory.end()){
+                            character.inventory.erase(position);
+                        }
+                    }
+                    else{
+                        cout << "Boots already equipped." << endl;
+                    }
+                }
+                else{
+                    cout << "Nothing to equip." << endl;
+                    break;
+                }
+            }
+        }
+        else{
+            cout << "No items to equip." << endl;
+        }
+    }

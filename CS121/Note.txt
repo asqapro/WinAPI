@@ -1,0 +1,1 @@
+There were two other folders in this directory, titled Programming Assignments and Programming Assignment 4. I deleted them because they were made in Visual Studios, and I did not feel like cleaning out the unnecessary files.

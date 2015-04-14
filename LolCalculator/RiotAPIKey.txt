@@ -1,0 +1,5 @@
+Key:
+732bcfd6-2dbb-4507-ab0f-560b7d79eead
+Rate Limit(s):
+500 request(s) every 10 minute(s)
+10 request(s) every 10 second(s)
